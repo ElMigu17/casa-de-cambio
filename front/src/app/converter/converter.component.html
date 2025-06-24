@@ -1,4 +1,17 @@
 <div>
+  <div class="content">
+    <button>Alterar taxa</button>
+  </div>
+
+  <div>
+    <label> Set currency value based in gold </label>
+    <input (change)="set()" [(ngModel)]="inputs.set" />
+    <select id="setter" [(ngModel)]="currentChoices.set">
+      @for (item of selectOption; track item.name) {
+      <option value="{{ item.value }}">{{ item.name }}</option>
+      }
+    </select>
+  </div>
   <h1>CONVERSOR DE MOEDAS</h1>
 
   <div>

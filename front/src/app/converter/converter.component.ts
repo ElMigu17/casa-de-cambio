@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Currencies, InputField } from '../enums.enum';
 
+type Choices = { set: Currencies; qtd: Currencies; converted: Currencies };
+
 @Component({
   selector: 'converter',
   imports: [CommonModule, FormsModule],
@@ -16,21 +18,31 @@ export class Converter implements OnInit {
     { name: 'Tibares', value: Currencies.TIB },
     { name: 'Ouro Real', value: Currencies.ORE },
   ];
-  inputs = { qtd: 1, converted: 1 };
-  currentChoices: { qtd: Currencies; converted: Currencies } = {
-    qtd: Currencies.ORE,
-    converted: Currencies.TIB,
-  };
-  lastChoices: { qtd: Currencies; converted: Currencies } = {
-    qtd: Currencies.ORE,
-    converted: Currencies.TIB,
-  };
   currencyGoldValue = { TIB: 2.5, ORE: 1 };
+  currentChoices: Choices = {
+    set: Currencies.TIB,
+    qtd: Currencies.ORE,
+    converted: Currencies.TIB,
+  };
+  lastChoices: Choices = {
+    set: Currencies.TIB,
+    qtd: Currencies.ORE,
+    converted: Currencies.TIB,
+  };
+  inputs = {
+    set: this.currencyGoldValue[this.currentChoices.set],
+    qtd: 1,
+    converted: 1,
+  };
 
   constructor() {}
 
   ngOnInit() {
     this.convert(InputField.QTD);
+  }
+
+  set() {
+    this.currencyGoldValue[this.currentChoices.set] = this.inputs.set;
   }
 
   onSelectionChange(event: Event) {
