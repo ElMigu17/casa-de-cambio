@@ -34,6 +34,7 @@ export class Converter implements OnInit {
     qtd: 1,
     converted: 1,
   };
+  showModel: boolean = false;
 
   constructor() {}
 
@@ -54,6 +55,7 @@ export class Converter implements OnInit {
       if (event.target.id == InputField.QTD) {
         this.currentChoices.converted = this.lastChoices.qtd;
       } else {
+        console.log('aaaaaaaaaaa');
         this.currentChoices.qtd = this.lastChoices.converted;
       }
     }
@@ -66,6 +68,14 @@ export class Converter implements OnInit {
 
     const multiplier = this.currencyGoldValue[this.currentChoices[origin]];
     const divider = this.currencyGoldValue[this.currentChoices[target]];
-    this.inputs[target] = (this.inputs[origin] * multiplier) / divider;
+    this.inputs[target] = this.convertFormula(
+      this.inputs[origin],
+      multiplier,
+      divider
+    );
+  }
+
+  convertFormula(input: number, multiplier: number, divider: number) {
+    return (input * multiplier) / divider;
   }
 }

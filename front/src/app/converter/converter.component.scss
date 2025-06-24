@@ -1,10 +1,125 @@
-.select-borrow{
-    margin-bottom: 10px;
-    margin-left: 5px;
-    border-radius: 4px;
+.navbar {
+  border-bottom: 1px solid #000000;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+
+  button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .main-navbar {
+    max-width: 1200px;
+    width: 83.33vw;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 30px;
+  }
 }
 
-.check-delivered{
-    width: 30px;
-    margin-bottom: 0;
+.backgroundModal {
+  background-color: #00000077;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .background-button {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    cursor: pointer;
+    z-index: 0;
+  }
+}
+
+.modal {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 10;
+
+  label {
+    font-size: 12px;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid black;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    text-transform: uppercase;
+    font-size: 60px;
+  }
+}
+.converter {
+  padding: 21px 15px;
+  border: 1px solid black;
+  border-radius: 12px;
+  font-size: 23px;
+  input {
+    border: 0;
+    font-size: 23px;
+  }
+  select {
+    border: 0;
+    background-color: transparent;
+
+    font-size: 23px;
+  }
+}
+
+.all-converters {
+  border: 1px solid black;
+  border-radius: 33px;
+  padding: 36px 32px;
+  p {
+    font-size: 23px;
+  }
+  label {
+    font-size: 12px;
+  }
+}
+.converters {
+  display: flex;
+  gap: 80px;
+}
+
+.select-borrow {
+  margin-bottom: 10px;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
+.check-delivered {
+  width: 30px;
+  margin-bottom: 0;
 }

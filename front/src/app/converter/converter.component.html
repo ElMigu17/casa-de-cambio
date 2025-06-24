@@ -1,56 +1,83 @@
 <div>
-  <div class="content">
-    <button>Alterar taxa</button>
-  </div>
-
-  <div>
-    <label> Set currency value based in gold </label>
-    <input (change)="set()" [(ngModel)]="inputs.set" />
-    <select id="setter" [(ngModel)]="currentChoices.set">
-      @for (item of selectOption; track item.name) {
-      <option value="{{ item.value }}">{{ item.name }}</option>
-      }
-    </select>
-  </div>
-  <h1>CONVERSOR DE MOEDAS</h1>
-
-  <div>
-    <div class="input-converter">
-      <p>Quantia</p>
-      <div class="converter">
-        <input
-          (change)="convert(inputFieldEnum.QTD)"
-          [(ngModel)]="inputs.qtd"
-        />
-        <select
-          id="inputFieldEnum.QTD"
-          [(ngModel)]="currentChoices.qtd"
-          (change)="onSelectionChange($event)"
-        >
-          @for (item of selectOption; track item.name) {
-          <option value="{{ item.value }}">{{ item.name }}</option>
-          }
-        </select>
-      </div>
+  <div class="navbar">
+    <div class="main-navbar">
+      <button (click)="showModel = !showModel">Alterar taxa</button>
     </div>
+  </div>
 
-    <div class="input-converter">
-      <p>Convertido</p>
+  <div class="backgroundModal" *ngIf="showModel">
+    <div class="modal">
+      <label for="set"> Set currency value based in gold: </label><br />
+
       <div class="converter">
-        <input
-          (change)="convert(inputFieldEnum.CON)"
-          [(ngModel)]="inputs.converted"
-        />
-        <select
-          id="converted"
-          [(ngModel)]="currentChoices.converted"
-          (change)="onSelectionChange($event)"
-        >
+        <input name="set" (change)="set()" [(ngModel)]="inputs.set" />
+        <select id="setter" [(ngModel)]="currentChoices.set">
           @for (item of selectOption; track item.name) {
           <option value="{{ item.value }}">{{ item.name }}</option>
           }
         </select>
       </div>
+      <br />
+      <button (click)="showModel = !showModel">Fechar</button>
+    </div>
+    <button class="background-button" (click)="showModel = !showModel"></button>
+  </div>
+  <div class="main-content">
+    <h1>monetæ converter</h1>
+
+    <div class="all-converters">
+      <div class="converters">
+        <div class="input-converter">
+          <label for="qtd">Quantia</label>
+          <div class="converter">
+            <input
+              name="qtd"
+              (change)="convert(inputFieldEnum.QTD)"
+              [(ngModel)]="inputs.qtd"
+            />
+            <select
+              id="inputFieldEnum.QTD"
+              [(ngModel)]="currentChoices.qtd"
+              (change)="onSelectionChange($event)"
+            >
+              @for (item of selectOption; track item.name) {
+              <option value="{{ item.value }}">{{ item.name }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="input-converter">
+          <label for="converted">Convertido</label>
+          <div class="converter">
+            <input
+              name="converted"
+              (change)="convert(inputFieldEnum.CON)"
+              [(ngModel)]="inputs.converted"
+            />
+            <select
+              id="converted"
+              [(ngModel)]="currentChoices.converted"
+              (change)="onSelectionChange($event)"
+            >
+              @for (item of selectOption; track item.name) {
+              <option value="{{ item.value }}">{{ item.name }}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+      <p>
+        1.000 {{ currentChoices.qtd }} =
+        {{
+          convertFormula(
+            1,
+            currencyGoldValue[this.currentChoices["qtd"]],
+            currencyGoldValue[this.currentChoices["converted"]]
+          )
+        }}
+        {{ currentChoices.converted }}
+      </p>
     </div>
   </div>
 </div>
