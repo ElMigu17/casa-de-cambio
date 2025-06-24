@@ -1,0 +1,30 @@
+<div>
+  <h1>CONVERSOR DE MOEDAS</h1>
+
+  <div>
+    <div class="input-converter">
+      <p>Quantia</p>
+      <div class="converter">
+        <input />
+        <select>
+          <option value="TIB">Tibares</option>
+          <option value="ORE">Ouro Real</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="input-converter">
+      <p>Quantia</p>
+      <div class="converter">
+        <input />
+        <select>
+          @for (item of selectOption; track item.name) {
+          <option value="aa">{{ item.name }}</option>
+          }
+          <option value="TIB">Tibares</option>
+          <option value="ORE">Ouro Real</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
