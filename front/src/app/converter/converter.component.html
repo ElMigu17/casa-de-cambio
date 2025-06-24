@@ -5,24 +5,37 @@
     <div class="input-converter">
       <p>Quantia</p>
       <div class="converter">
-        <input />
-        <select>
-          <option value="TIB">Tibares</option>
-          <option value="ORE">Ouro Real</option>
+        <input
+          (change)="convert(inputFieldEnum.QTD)"
+          [(ngModel)]="inputs.qtd"
+        />
+        <select
+          id="inputFieldEnum.QTD"
+          [(ngModel)]="currentChoices.qtd"
+          (change)="onSelectionChange($event)"
+        >
+          @for (item of selectOption; track item.name) {
+          <option value="{{ item.value }}">{{ item.name }}</option>
+          }
         </select>
       </div>
     </div>
 
     <div class="input-converter">
-      <p>Quantia</p>
+      <p>Convertido</p>
       <div class="converter">
-        <input />
-        <select>
+        <input
+          (change)="convert(inputFieldEnum.CON)"
+          [(ngModel)]="inputs.converted"
+        />
+        <select
+          id="converted"
+          [(ngModel)]="currentChoices.converted"
+          (change)="onSelectionChange($event)"
+        >
           @for (item of selectOption; track item.name) {
-          <option value="aa">{{ item.name }}</option>
+          <option value="{{ item.value }}">{{ item.name }}</option>
           }
-          <option value="TIB">Tibares</option>
-          <option value="ORE">Ouro Real</option>
         </select>
       </div>
     </div>
