@@ -68,7 +68,8 @@ main {
       background-color: #ffffff77;
     }
 
-    button {
+    button,
+    a {
       background-color: #ffffff77;
     }
   }
@@ -89,11 +90,15 @@ main {
     height: 48px;
   }
 
-  button {
+  button,
+  a {
     background-color: transparent;
     border: 0;
     cursor: pointer;
     padding: 2px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
     &:hover {
       text-decoration: underline;
     }
@@ -104,6 +109,8 @@ main {
     width: 83.33vw;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
     padding: 0 30px;
   }
 }
