@@ -1,7 +1,7 @@
 <div [ngClass]="{ medieval: medievalStyleService.getValue()() }">
   <div class="backgroundModal" *ngIf="showModel">
     <div class="modal">
-      <label for="set"> Set currency value based in gold: </label><br />
+      <label for="set"> Definir valor baseado em ouro: </label><br />
 
       <div class="converter">
         <input name="set" (change)="set()" [(ngModel)]="inputs.set" />

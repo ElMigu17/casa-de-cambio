@@ -7,7 +7,6 @@ export class MedievalStyle {
   private medievalStyle = signal(false);
 
   switch() {
-    console.log('aaaaaaaaaaaaaaaaa', this.getValue());
     this.medievalStyle.update((current) => !current);
   }
 

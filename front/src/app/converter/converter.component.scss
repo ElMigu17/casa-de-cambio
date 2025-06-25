@@ -3,6 +3,11 @@
   height: 100vh;
   background-image: url("/fabric.png");
 
+  .modal {
+    background-image: url("/paper.png");
+    background-size: 100%;
+  }
+
   .title {
     display: flex;
 
@@ -44,6 +49,7 @@
     margin-top: 95px;
     line-height: 1;
     margin-bottom: 95px;
+    text-align: center;
   }
 }
 
@@ -91,6 +97,7 @@
   border: 1px solid black;
   border-radius: 12px;
   font-size: 23px;
+  display: flex;
   input {
     border: 0;
     font-size: 23px;
@@ -112,7 +119,7 @@
     font-size: 23px;
   }
   label {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 .converters {
@@ -133,4 +140,29 @@
 
 .changeTaxButton {
   margin: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .converters {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .converter {
+    padding: 15px 9px;
+    input,
+    select {
+      font-size: 16px;
+    }
+  }
+
+  .all-converters {
+    border-radius: 20px;
+    padding: 18px 16px;
+    p {
+      font-size: 16px;
+    }
+    label {
+      font-size: 12px;
+    }
+  }
 }
