@@ -53,10 +53,20 @@ export class Converter implements OnInit {
     }
 
     if (this.currentChoices.qtd === this.currentChoices.converted) {
+      console.log(event.target.id);
       if (event.target.id == InputField.QTD) {
+        console.log(
+          'bbbbbbbbbbb',
+          this.currentChoices.qtd,
+          this.lastChoices.converted
+        );
         this.currentChoices.converted = this.lastChoices.qtd;
       } else {
-        console.log('aaaaaaaaaaa');
+        console.log(
+          'aaaaaaaaaaa',
+          this.currentChoices.qtd,
+          this.lastChoices.converted
+        );
         this.currentChoices.qtd = this.lastChoices.converted;
       }
     }
