@@ -12,7 +12,9 @@
         </select>
       </div>
       <br />
-      <button (click)="showModel = !showModel">Fechar</button>
+      <button class="standartButton" (click)="showModel = !showModel">
+        Fechar
+      </button>
     </div>
     <button class="background-button" (click)="showModel = !showModel"></button>
   </div>
@@ -82,5 +84,11 @@
         {{ currentChoices.converted }}
       </p>
     </div>
+    <button
+      class="standartButton changeTaxButton"
+      (click)="showModel = !showModel"
+    >
+      Alterar taxa
+    </button>
   </div>
 </div>

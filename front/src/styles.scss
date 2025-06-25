@@ -9,3 +9,15 @@ body {
   font-weight: 500;
   src: url(../public/Canterbury.ttf) format("truetype");
 }
+
+.standartButton {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}

@@ -80,18 +80,6 @@
   label {
     font-size: 12px;
   }
-
-  button {
-    cursor: pointer;
-    background-color: transparent;
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: 1px solid black;
-    &:hover {
-      background-color: black;
-      color: white;
-    }
-  }
 }
 .main-content {
   display: flex;
@@ -141,4 +129,8 @@
 .check-delivered {
   width: 30px;
   margin-bottom: 0;
+}
+
+.changeTaxButton {
+  margin: 20px;
 }
