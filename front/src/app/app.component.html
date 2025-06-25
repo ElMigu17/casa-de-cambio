@@ -1,5 +1,13 @@
-<main class="main">
-  <converter></converter>
+<main [ngClass]="{ medieval: medievalStyleService.getValue()(), main: true }">
+  <div class="navbar">
+    <img src="/casa-medieval.png" alt="logo" />
+    <div class="main-navbar">
+      <a href="converter">Tela de conversão</a>
+      <a href="tabela">Tabela</a>
+      <!-- <button (click)="showModel = !showModel">Alterar taxa</button> -->
+      <button (click)="medievalStyleService.switch()">Alterar estilo</button>
+    </div>
+  </div>
 </main>
 
 <router-outlet />

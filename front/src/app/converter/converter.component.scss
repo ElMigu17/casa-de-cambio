@@ -2,17 +2,6 @@
   width: 100vw;
   height: 100vh;
   background-image: url("/fabric.png");
-  .navbar {
-    background-image: url("/fabric.png");
-
-    img {
-      background-color: #ffffff77;
-    }
-
-    button {
-      background-color: #ffffff77;
-    }
-  }
 
   .title {
     display: flex;
@@ -34,40 +23,6 @@
   .all-converters {
     background-image: url("/paper.png");
     background-size: 100%;
-  }
-}
-
-.navbar {
-  border-bottom: 1px solid #000000;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  padding: 8px;
-  z-index: 100;
-
-  img {
-    height: 48px;
-  }
-
-  button {
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    padding: 2px;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .main-navbar {
-    max-width: 1200px;
-    width: 83.33vw;
-    display: flex;
-    justify-content: flex-start;
-    padding: 0 30px;
   }
 }
 

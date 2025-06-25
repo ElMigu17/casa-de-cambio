@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Currencies, InputField } from '../enums.enum';
+import { MedievalStyle } from '../server/medievalStyle';
 
 type Choices = { set: Currencies; qtd: Currencies; converted: Currencies };
 
@@ -37,7 +38,7 @@ export class Converter implements OnInit {
   };
   showModel: boolean = false;
 
-  constructor() {}
+  constructor(public medievalStyleService: MedievalStyle) {}
 
   ngOnInit() {
     this.convert(InputField.QTD);

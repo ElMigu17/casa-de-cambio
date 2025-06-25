@@ -1,12 +1,4 @@
-<div [ngClass]="{ medieval: medievalStyle }">
-  <div class="navbar">
-    <img src="/casa-medieval.png" alt="logo" />
-    <div class="main-navbar">
-      <button (click)="showModel = !showModel">Alterar taxa</button>
-      <button (click)="medievalStyle = !medievalStyle">Alterar estilo</button>
-    </div>
-  </div>
-
+<div [ngClass]="{ medieval: medievalStyleService.getValue()() }">
   <div class="backgroundModal" *ngIf="showModel">
     <div class="modal">
       <label for="set"> Set currency value based in gold: </label><br />
@@ -26,9 +18,13 @@
   </div>
   <div class="main-content">
     <div class="title">
-      <img src="/sign.png" alt="sign" *ngIf="medievalStyle" />
+      <img
+        src="/sign.png"
+        alt="sign"
+        *ngIf="medievalStyleService.getValue()()"
+      />
       <h1>
-        monetæ <br *ngIf="medievalStyle" />
+        monetæ <br *ngIf="medievalStyleService.getValue()()" />
         converter
       </h1>
     </div>
