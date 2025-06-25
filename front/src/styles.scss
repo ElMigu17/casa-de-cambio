@@ -2,3 +2,10 @@
 body {
   margin: 0;
 }
+
+@font-face {
+  font-family: "Canterbury";
+  font-style: normal;
+  font-weight: 500;
+  src: url(../public/Canterbury.ttf) format("truetype");
+}

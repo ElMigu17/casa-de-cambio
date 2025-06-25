@@ -1,16 +1,62 @@
+.medieval {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/fabric.png");
+  .navbar {
+    background-image: url("/fabric.png");
+
+    img {
+      background-color: #ffffff77;
+    }
+
+    button {
+      background-color: #ffffff77;
+    }
+  }
+
+  .title {
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
+    h1 {
+      margin-top: 140px;
+      font-family: "Canterbury", sans-serif;
+    }
+  }
+
+  .converter {
+    input {
+      background-color: #ffffff22;
+    }
+  }
+
+  .all-converters {
+    background-image: url("/paper.png");
+    background-size: 100%;
+  }
+}
+
 .navbar {
   border-bottom: 1px solid #000000;
   position: fixed;
   left: 0;
+  top: 0;
   width: 100vw;
   display: flex;
   justify-content: center;
   padding: 8px;
+  z-index: 100;
+
+  img {
+    height: 48px;
+  }
 
   button {
     background-color: transparent;
     border: 0;
     cursor: pointer;
+    padding: 2px;
     &:hover {
       text-decoration: underline;
     }
@@ -22,6 +68,27 @@
     display: flex;
     justify-content: flex-start;
     padding: 0 30px;
+  }
+}
+
+.title {
+  display: flex;
+
+  justify-content: center;
+  align-items: flex-start;
+  img {
+    top: -50px;
+    position: absolute;
+    z-index: 0;
+  }
+
+  h1 {
+    text-transform: capitalize;
+    font-size: 60px;
+    z-index: 1;
+    margin-top: 95px;
+    line-height: 1;
+    margin-bottom: 95px;
   }
 }
 
@@ -75,10 +142,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1 {
-    text-transform: uppercase;
-    font-size: 60px;
-  }
 }
 .converter {
   padding: 21px 15px;
@@ -88,6 +151,7 @@
   input {
     border: 0;
     font-size: 23px;
+    background-color: #ffffff22;
   }
   select {
     border: 0;

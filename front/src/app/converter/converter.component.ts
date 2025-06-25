@@ -14,6 +14,7 @@ type Choices = { set: Currencies; qtd: Currencies; converted: Currencies };
 })
 export class Converter implements OnInit {
   inputFieldEnum = InputField;
+  medievalStyle: boolean = false;
   selectOption = [
     { name: 'Tibares', value: Currencies.TIB },
     { name: 'Ouro Real', value: Currencies.ORE },

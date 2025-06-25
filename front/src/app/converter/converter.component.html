@@ -1,7 +1,9 @@
-<div>
+<div [ngClass]="{ medieval: medievalStyle }">
   <div class="navbar">
+    <img src="/casa-medieval.png" alt="logo" />
     <div class="main-navbar">
       <button (click)="showModel = !showModel">Alterar taxa</button>
+      <button (click)="medievalStyle = !medievalStyle">Alterar estilo</button>
     </div>
   </div>
 
@@ -23,8 +25,13 @@
     <button class="background-button" (click)="showModel = !showModel"></button>
   </div>
   <div class="main-content">
-    <h1>monetæ converter</h1>
-
+    <div class="title">
+      <img src="/sign.png" alt="sign" *ngIf="medievalStyle" />
+      <h1>
+        monetæ <br *ngIf="medievalStyle" />
+        converter
+      </h1>
+    </div>
     <div class="all-converters">
       <div class="converters">
         <div class="input-converter">
