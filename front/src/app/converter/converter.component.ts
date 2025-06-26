@@ -2,8 +2,11 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Currencies, InputField } from '../enums.enum';
-import { MedievalStyle } from '../server/medievalStyle';
-import { ConversionsService, Convertion } from '../server/conversionsService';
+import { MedievalStyle } from '../server/medievalStyle/medievalStyle';
+import {
+  ConversionsService,
+  Convertion,
+} from '../server/conversionService/conversionsService';
 
 type Choices = { set: string; qtd: string; converted: string };
 interface Map {
@@ -60,20 +63,9 @@ export class Converter implements OnInit {
     }
 
     if (this.currentChoices.qtd === this.currentChoices.converted) {
-      console.log(event.target.id);
       if (event.target.id == InputField.QTD) {
-        console.log(
-          'bbbbbbbbbbb',
-          this.currentChoices.qtd,
-          this.lastChoices.converted
-        );
         this.currentChoices.converted = this.lastChoices.qtd;
       } else {
-        console.log(
-          'aaaaaaaaaaa',
-          this.currentChoices.qtd,
-          this.lastChoices.converted
-        );
         this.currentChoices.qtd = this.lastChoices.converted;
       }
     }
@@ -102,8 +94,6 @@ export class Converter implements OnInit {
     };
 
     this.conversionsService.addConvertion(newConvertion);
-
-    console.log(this.conversionsService.getValue()());
   }
 
   convertFormula(input: number, multiplier: number, divider: number) {

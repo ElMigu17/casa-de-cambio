@@ -1,10 +1,10 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MedievalStyle {
-  private medievalStyle = signal(false);
+  private readonly medievalStyle = signal(false);
 
   switch() {
     this.medievalStyle.update((current) => !current);

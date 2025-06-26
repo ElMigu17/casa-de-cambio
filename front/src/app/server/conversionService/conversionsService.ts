@@ -1,4 +1,4 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 export type Convertion = {
   id: number;
@@ -12,7 +12,7 @@ export type Convertion = {
   providedIn: 'root',
 })
 export class ConversionsService {
-  private convertions = signal<Convertion[]>([]);
+  private readonly convertions = signal<Convertion[]>([]);
 
   addConvertion(newConvertion: Convertion) {
     this.convertions.update((current) => [...current, newConvertion]);

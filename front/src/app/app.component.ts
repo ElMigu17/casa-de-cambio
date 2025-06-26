@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MedievalStyle } from './server/medievalStyle';
+import { MedievalStyle } from './server/medievalStyle/medievalStyle';
 import { CommonModule } from '@angular/common';
-import { ConversionsService } from './server/conversionsService';
 
 @Component({
   selector: 'app-root',
