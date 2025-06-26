@@ -23,7 +23,7 @@ export class ConversionsService {
   }
 
   getNewId() {
-    const convertionsLength = this.convertions.length;
+    const convertionsLength = this.convertions().length;
     if (convertionsLength == 0) {
       return 0;
     }
