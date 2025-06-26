@@ -1,0 +1,13 @@
+<div [ngClass]="{ medieval: medievalStyleService.getValue()(), tabel: true }">
+  <h1>
+    monetæ <br *ngIf="medievalStyleService.getValue()()" />
+    registration
+  </h1>
+  <ag-grid-angular
+    class="ag-theme-alpine aggrid"
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
+  >
+  </ag-grid-angular>
+</div>

@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Currencies, InputField } from '../enums.enum';
 import { MedievalStyle } from '../server/medievalStyle';
+import { ConversionsService, Convertion } from '../server/conversionsService';
 
-type Choices = { set: Currencies; qtd: Currencies; converted: Currencies };
-
+type Choices = { set: string; qtd: string; converted: string };
+interface Map {
+  [key: string]: number;
+}
 @Component({
   selector: 'converter',
   imports: [CommonModule, FormsModule],
@@ -20,7 +23,7 @@ export class Converter implements OnInit {
     { name: 'Tibares', value: Currencies.TIB },
     { name: 'Ouro Real', value: Currencies.ORE },
   ];
-  currencyGoldValue = { TIB: 2.5, ORE: 1 };
+  currencyGoldValue: Map = { TIB: 2.5, ORE: 1 };
   currentChoices: Choices = {
     set: Currencies.TIB,
     qtd: Currencies.ORE,
@@ -38,7 +41,10 @@ export class Converter implements OnInit {
   };
   showModel: boolean = false;
 
-  constructor(public medievalStyleService: MedievalStyle) {}
+  constructor(
+    public medievalStyleService: MedievalStyle,
+    public conversionsService: ConversionsService
+  ) {}
 
   ngOnInit() {
     this.convert(InputField.QTD);
@@ -85,6 +91,19 @@ export class Converter implements OnInit {
       multiplier,
       divider
     );
+
+    let newConvertion: Convertion = {
+      id: this.conversionsService.getNewId(),
+
+      originCurrency: this.currentChoices[origin],
+      targetCurrency: this.currentChoices[target],
+      value: this.inputs[origin] / multiplier,
+      dateTime: new Date(),
+    };
+
+    this.conversionsService.addConvertion(newConvertion);
+
+    console.log(this.conversionsService.getValue()());
   }
 
   convertFormula(input: number, multiplier: number, divider: number) {
