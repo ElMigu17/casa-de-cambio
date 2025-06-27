@@ -29,6 +29,8 @@ interface IRow {
   styleUrl: './tabel.component.scss',
 })
 export class Tabel implements OnInit {
+  showModel = true;
+  password = '';
   constructor(
     public medievalStyleService: MedievalStyle,
     public conversionsService: ConversionsService
@@ -60,4 +62,12 @@ export class Tabel implements OnInit {
   defaultColDef: ColDef = {
     flex: 1,
   };
+
+  login() {
+    if (this.password == '1234') {
+      this.showModel = false;
+    } else {
+      alert('Senha incorreta');
+    }
+  }
 }

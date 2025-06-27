@@ -3,7 +3,16 @@
     monetæ <br *ngIf="medievalStyleService.getValue()()" />
     registration
   </h1>
+  <div class="modal" *ngIf="showModel">
+    <label for="password"> Senha </label><br />
+    <div class="converter">
+      <input name="password" [(ngModel)]="password" />
+    </div>
+    <br />
+    <button class="standartButton" (click)="login()">Entrar</button>
+  </div>
   <ag-grid-angular
+    *ngIf="!showModel"
     class="ag-theme-alpine aggrid"
     [rowData]="rowData"
     [columnDefs]="colDefs"
