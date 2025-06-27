@@ -8,7 +8,7 @@ import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 // Angular Data Grid Component
 import { AgGridAngular } from 'ag-grid-angular';
 // Column Definition Type Interface
-import type { ColDef } from 'ag-grid-community';
+import type { ColDef, ValueFormatterParams } from 'ag-grid-community';
 import { ConversionsService } from '../server/conversionService/conversionsService';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -43,10 +43,18 @@ export class Tabel implements OnInit {
   // Column Definitions: Defines & controls grid columns.
   colDefs: ColDef<IRow>[] = [
     { field: 'id' },
-    { field: 'originCurrency' },
-    { field: 'targetCurrency' },
-    { field: 'value' },
-    { field: 'dateTime' },
+    { field: 'originCurrency', headerName: 'Moeda de origem' },
+    { field: 'targetCurrency', headerName: 'Moeda de destino' },
+    { field: 'value', headerName: 'Valor em ouro trocado' },
+    {
+      field: 'dateTime',
+      headerName: 'Dia e hora',
+      cellDataType: 'dateTime',
+      valueFormatter: (params: ValueFormatterParams) => {
+        console.log(params.value);
+        return params.value.toLocaleString().replace(',', '');
+      },
+    },
   ];
 
   defaultColDef: ColDef = {
