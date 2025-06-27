@@ -51,7 +51,7 @@
             </select>
           </div>
         </div>
-
+        <i class="arrow-left"></i>
         <div class="input-converter">
           <label for="converted">Convertido</label>
           <div class="converter">
@@ -59,6 +59,7 @@
               name="converted"
               (change)="convert(inputFieldEnum.CON)"
               [(ngModel)]="inputs.converted"
+              readonly
             />
             <select
               id="converted"

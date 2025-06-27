@@ -20,6 +20,7 @@ interface Map {
   styleUrl: './converter.component.scss',
 })
 export class Converter implements OnInit {
+  fistTime = true;
   inputFieldEnum = InputField;
   medievalStyle: boolean = false;
   selectOption = [
@@ -74,6 +75,10 @@ export class Converter implements OnInit {
   }
 
   convert(origin: InputField) {
+    if (this.fistTime) {
+      this.fistTime = false;
+      return;
+    }
     let target = origin == InputField.QTD ? InputField.CON : InputField.QTD;
 
     const multiplier = this.currencyGoldValue[this.currentChoices[origin]];

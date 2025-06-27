@@ -30,6 +30,14 @@
   }
 }
 
+.arrow-left {
+  mask: url("/arrow.svg");
+  height: 30px;
+  width: 30px;
+  mask-size: 30px;
+  background-color: #000000;
+}
+
 .title {
   display: flex;
 
@@ -123,7 +131,8 @@
 }
 .converters {
   display: flex;
-  gap: 80px;
+  gap: 35px;
+  align-items: center;
 }
 
 .select-borrow {
