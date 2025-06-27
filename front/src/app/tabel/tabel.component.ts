@@ -1,7 +1,6 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Currencies, InputField } from '../enums.enum';
 import { MedievalStyle } from '../server/medievalStyle/medievalStyle';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 
@@ -31,6 +30,7 @@ interface IRow {
 export class Tabel implements OnInit {
   showModel = true;
   password = '';
+  detalhes: IRow | null = null;
   constructor(
     public medievalStyleService: MedievalStyle,
     public conversionsService: ConversionsService
@@ -42,20 +42,37 @@ export class Tabel implements OnInit {
 
   rowData: IRow[] = [];
 
+  onCellClicked = (event: any) => {
+    // Now 'this' refers to the component instance
+    console.log('Cell selection changed:', this.rowData[event.rowIndex]);
+    this.detalhes = this.rowData[event.rowIndex];
+  };
   // Column Definitions: Defines & controls grid columns.
   colDefs: ColDef<IRow>[] = [
-    { field: 'id' },
-    { field: 'originCurrency', headerName: 'Moeda de origem' },
-    { field: 'targetCurrency', headerName: 'Moeda de destino' },
-    { field: 'value', headerName: 'Valor em ouro trocado' },
+    { field: 'id', onCellClicked: this.onCellClicked },
+    {
+      field: 'originCurrency',
+      headerName: 'Moeda de origem',
+      onCellClicked: this.onCellClicked,
+    },
+    {
+      field: 'targetCurrency',
+      headerName: 'Moeda de destino',
+      onCellClicked: this.onCellClicked,
+    },
+    {
+      field: 'value',
+      headerName: 'Valor em ouro trocado',
+      onCellClicked: this.onCellClicked,
+    },
     {
       field: 'dateTime',
       headerName: 'Dia e hora',
       cellDataType: 'dateTime',
       valueFormatter: (params: ValueFormatterParams) => {
-        console.log(params.value);
         return params.value.toLocaleString().replace(',', '');
       },
+      onCellClicked: this.onCellClicked,
     },
   ];
 

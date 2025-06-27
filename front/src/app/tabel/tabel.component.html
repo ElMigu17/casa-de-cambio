@@ -22,4 +22,15 @@
     [paginationPageSizeSelector]="[10, 20, 50, 100]"
   >
   </ag-grid-angular>
+  <div *ngIf="detalhes">
+    <h3>Detalhes:</h3>
+    <ul>
+      <li>Id: {{ detalhes.id }}</li>
+      <li>Moeda de origem: {{ detalhes.originCurrency }}</li>
+      <li>Moeda de destino: {{ detalhes.targetCurrency }}</li>
+      <li>Valor: {{ detalhes.value }}</li>
+      <li>Data e hora: {{ detalhes.dateTime }}</li>
+      <!-- TODO: adicionar valor na cotação das moedas atuais, se pa, colocar as cotações antigas na entidade que salva tb -->
+    </ul>
+  </div>
 </div>
