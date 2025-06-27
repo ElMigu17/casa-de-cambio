@@ -66,8 +66,12 @@ export class Converter implements OnInit {
     if (this.currentChoices.qtd === this.currentChoices.converted) {
       if (event.target.id == InputField.QTD) {
         this.currentChoices.converted = this.lastChoices.qtd;
-      } else {
+        this.fistTime = true;
+        this.convert(event.target.id);
+      } else if (event.target.id == InputField.CON) {
         this.currentChoices.qtd = this.lastChoices.converted;
+        this.fistTime = true;
+        this.convert(event.target.id);
       }
     }
 
@@ -75,10 +79,6 @@ export class Converter implements OnInit {
   }
 
   convert(origin: InputField) {
-    if (this.fistTime) {
-      this.fistTime = false;
-      return;
-    }
     let target = origin == InputField.QTD ? InputField.CON : InputField.QTD;
 
     const multiplier = this.currencyGoldValue[this.currentChoices[origin]];
@@ -88,6 +88,11 @@ export class Converter implements OnInit {
       multiplier,
       divider
     );
+
+    if (this.fistTime) {
+      this.fistTime = false;
+      return;
+    }
 
     let newConvertion: Convertion = {
       id: this.conversionsService.getNewId(),

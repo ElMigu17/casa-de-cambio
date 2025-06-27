@@ -36,6 +36,7 @@
   width: 30px;
   mask-size: 30px;
   background-color: #000000;
+  margin-top: 4px;
 }
 
 .title {
@@ -153,7 +154,7 @@
 @media screen and (max-width: 768px) {
   .converters {
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
   }
   .converter {
     padding: 15px 9px;
@@ -172,5 +173,8 @@
     label {
       font-size: 12px;
     }
+  }
+  .arrow-left {
+    transform: rotate(90deg);
   }
 }
