@@ -1,0 +1,36 @@
+<div [ngClass]="{ medieval: medievalStyleService.getValue()(), tabel: true }">
+  <h1>
+    monetæ <br *ngIf="medievalStyleService.getValue()()" />
+    registration
+  </h1>
+  <div class="modal" *ngIf="showModel">
+    <label for="password"> Senha </label><br />
+    <div class="converter">
+      <input name="password" [(ngModel)]="password" />
+    </div>
+    <br />
+    <button class="standartButton" (click)="login()">Entrar</button>
+  </div>
+  <ag-grid-angular
+    *ngIf="!showModel"
+    class="ag-theme-alpine aggrid"
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    [paginationPageSizeSelector]="[10, 20, 50, 100]"
+  >
+  </ag-grid-angular>
+  <div *ngIf="detalhes">
+    <h3>Detalhes:</h3>
+    <ul>
+      <li>Id: {{ detalhes.id }}</li>
+      <li>Moeda de origem: {{ detalhes.originCurrency }}</li>
+      <li>Moeda de destino: {{ detalhes.targetCurrency }}</li>
+      <li>Valor: {{ detalhes.value }}</li>
+      <li>Data e hora: {{ detalhes.dateTime }}</li>
+      <!-- TODO: adicionar valor na cotação das moedas atuais, se pa, colocar as cotações antigas na entidade que salva tb -->
+    </ul>
+  </div>
+</div>
