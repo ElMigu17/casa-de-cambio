@@ -134,6 +134,18 @@
   display: flex;
   gap: 35px;
   align-items: center;
+  span {
+    color: red;
+    width: 100%;
+    text-wrap: wrap;
+    font-size: 13px;
+    position: absolute;
+    max-width: 450px;
+  }
+  .input-converter {
+    max-width: 450px;
+    margin-bottom: 20px;
+  }
 }
 
 .select-borrow {
@@ -154,7 +166,17 @@
 @media screen and (max-width: 768px) {
   .converters {
     flex-direction: column;
-    gap: 0px;
+    gap: 20px;
+
+    span {
+      font-size: 11px;
+      position: absolute;
+      max-width: 300px;
+    }
+    .input-converter {
+      max-width: 450px;
+      margin-bottom: 20px;
+    }
   }
   .converter {
     padding: 15px 9px;

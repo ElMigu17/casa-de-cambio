@@ -21,6 +21,7 @@ interface Map {
 })
 export class Converter implements OnInit {
   fistTime = true;
+  inputError = false;
   inputFieldEnum = InputField;
   medievalStyle: boolean = false;
   selectOption = [
@@ -79,6 +80,11 @@ export class Converter implements OnInit {
   }
 
   convert(origin: InputField) {
+    if (isNaN(this.inputs[origin])) {
+      this.inputError = true;
+      return;
+    }
+    this.inputError = false;
     let target = origin == InputField.QTD ? InputField.CON : InputField.QTD;
 
     const multiplier = this.currencyGoldValue[this.currentChoices[origin]];
