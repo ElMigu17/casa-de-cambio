@@ -16,6 +16,8 @@ interface IRow {
   id: number;
   originCurrency: string;
   targetCurrency: string;
+  originCurrencyValue: number;
+  targetCurrencyValue: number;
   value: number;
   dateTime: Date;
 }

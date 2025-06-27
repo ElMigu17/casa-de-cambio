@@ -105,6 +105,8 @@ export class Converter implements OnInit {
 
       originCurrency: this.currentChoices[origin],
       targetCurrency: this.currentChoices[target],
+      originCurrencyValue: multiplier,
+      targetCurrencyValue: divider,
       value: this.inputs[origin] / multiplier,
       dateTime: new Date(),
     };
