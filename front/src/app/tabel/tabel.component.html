@@ -30,10 +30,10 @@
       <li>Moeda de destino: {{ detalhes.targetCurrency }}</li>
       <li>Valor: {{ detalhes.value }}</li>
       <li>
-        Valor recebido: {{ detalhes.value * detalhes.originCurrencyValue }}
+        Valor recebido: {{ detalhes.value / detalhes.originCurrencyValue }}
       </li>
       <li>
-        Valor entregue: {{ detalhes.value * detalhes.targetCurrencyValue }}
+        Valor entregue: {{ detalhes.value / detalhes.targetCurrencyValue }}
       </li>
       <li>Data e hora: {{ detalhes.dateTime }}</li>
     </ul>

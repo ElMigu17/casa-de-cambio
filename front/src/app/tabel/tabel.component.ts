@@ -45,11 +45,8 @@ export class Tabel implements OnInit {
   rowData: IRow[] = [];
 
   onCellClicked = (event: any) => {
-    // Now 'this' refers to the component instance
-    console.log('Cell selection changed:', this.rowData[event.rowIndex]);
     this.detalhes = this.rowData[event.rowIndex];
   };
-  // Column Definitions: Defines & controls grid columns.
   colDefs: ColDef<IRow>[] = [
     { field: 'id', onCellClicked: this.onCellClicked },
     {
