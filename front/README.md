@@ -1,59 +1,46 @@
-# Front
+# Casa de Cambio com estilo medieval
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+Esse projeto é uma casa de cambio com moedas ficticias, feito com angular 19.2, usando gerenciamento de estados e dados mockados.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- **Conversão de moedas**: Permite converter o valor de uma moeda para outra de acordo com uma taxa de cambio editavel.
+- **Vizualização de conversão**: Permite a vizualização das conversões feitas durante o uso do programa em uma tabela que requer autentificação.
+- **Alteração de tema**: É possivel escolher entre um tema padrão minimalista e um tema inspirado em uma barraca medieval.
+
+## Tecnologias Utilizadas
+
+- **Front-end**: Desenvolvido com Angular, TypeScript, HTML e SCSS.
+
+## Telas
+
+![alt tela de conversão](./images-readme/Tela_de_conversao.png)
+![alt formulario de emprestimos](./images-readme/Tabela_de_conversoes.png)
+
+# Desenvolvendo:
+
+Para começar um desenvolvimento local, de git clone nesse repositorio, entre na pasta clonada e rode:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
+Com o servidor rodando, abra o navegador no link `http://localhost:4200/`.
 
 ## Building
 
-To build the project run:
+Para buildar o projeto, rode:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Esse comando vai compilar o projeto e armazenar a buil no diretorio `dist/`.
 
-## Running unit tests
+## Rodando testes unitario
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Para rodar os testes unitario com [Karma](https://karma-runner.github.io) use o seguinte comnado:
 
 ```bash
 ng test
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
